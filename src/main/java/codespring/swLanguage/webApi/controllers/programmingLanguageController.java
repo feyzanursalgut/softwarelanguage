@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import codespring.swLanguage.business.abstracts.programmingLanguageService;
 import codespring.swLanguage.entities.concretes.programmingLanguage;
+import io.swagger.v3.oas.annotations.*;
 
 @RestController
 @RequestMapping("/api/PLanguages")
@@ -27,26 +28,31 @@ public class programmingLanguageController {
     }
 
     @GetMapping("/getAll")
+    @Operation(summary = "**Kayıtlı datayı getirir**")
     public List<programmingLanguage> getAll() {
         return pLanguageService.getAll();
     }
 
     @GetMapping("/getId")
+    @Operation(summary = "**Kayıtlı datayı Id'sine göre arattığınızda getirir**")
     public programmingLanguage getId(@RequestParam int id) throws Exception{
         return this.pLanguageService.getId(id);
     }
 
     @PostMapping("/setName")
+    @Operation(summary = "**Yeni bir kayıt ekler.Değerler boş gönderilemez**")
     public void pLanguageAdd(@RequestBody programmingLanguage pLanguage)throws Exception{
         this.pLanguageService.pLanguageAdd(pLanguage);
     }
      
     @PutMapping("/updateName")
+    @Operation(summary = "**Kayıtlı datayı günceller. Aynı değer birden fazla eklenemez**")
     public void pLanguageUpdate(@RequestBody programmingLanguage pLanguage) {
         this.pLanguageService.pLanguageUpdate(pLanguage);
     }
 
     @DeleteMapping("/delete")
+    @Operation(summary = "**Kayıtlı datayı siler**")
         public void pLanguageDelete(@RequestParam int id){
             this.pLanguageService.pLanguageDelete(id);
     }
