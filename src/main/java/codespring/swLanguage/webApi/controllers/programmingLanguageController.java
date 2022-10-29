@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import codespring.swLanguage.business.abstracts.programmingLanguageService;
 import codespring.swLanguage.entities.concretes.programmingLanguage;
 
@@ -26,7 +27,6 @@ public class programmingLanguageController {
     }
 
     @GetMapping("/getAll")
-    
     public List<programmingLanguage> getAll() {
         return pLanguageService.getAll();
     }
